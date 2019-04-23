@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/remi/Documents/Dev/georchestra/georchestra-sftp/docker-entrypoint.d'
 let g:netrw_dirhist_2='/home/remi/Documents/Dev/georchestra/rancher-catalog-georchestra/templates/georchestra-sftp/10'
+let g:netrw_dirhist_3='/home/remi'
+let g:netrw_dirhist_4='/home/remi/Documents/Dev/ckan/docker-ckan/ckan/root/etc/ckan'

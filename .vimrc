@@ -15,7 +15,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'nvie/vim-flake8'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 
@@ -70,6 +70,8 @@ au BufNewFile,BufRead *.py
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+autocmd BufRead,BufNewFile *.md setlocal spell
+
 " no alert
 set novisualbell
 set noerrorbells
@@ -94,16 +96,6 @@ let g:python3_host_prog = '/home/remi/.local/share/virtualenvs/vim_python3/bin/p
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 
-" Configure flake8
-let no_flake8_maps = 1
-let g:flake8_show_in_gutter=1
-let g:flake8_show_in_file=1
-highlight link Flake8_Error      Error
-highlight link Flake8_Warning    WarningMsg
-highlight link Flake8_Complexity WarningMsg
-highlight link Flake8_Naming     WarningMsg
-highlight link Flake8_PyFlake    WarningMsg
-autocmd FileType python map <buffer> <leader>f :call Flake8()<CR>
 
 " nerdtree.
 autocmd vimenter * NERDTree | wincmd p
