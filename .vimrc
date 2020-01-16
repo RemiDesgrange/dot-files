@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 
@@ -90,8 +91,8 @@ let g:airline_powerline_fonts = 1
 
 " python venv so I don't need to polute my system python
 " need to create a venv for that. I'm using pew to create the venv
-let g:python_host_prog = '/home/remi/.local/share/virtualenvs/vim_python2/bin/python2'
-let g:python3_host_prog = '/home/remi/.local/share/virtualenvs/vim_python3/bin/python'
+let g:python_host_prog = '/home/remi/.pyenv/versions/2.7.17/envs/vim_python2/bin/python'
+let g:python3_host_prog = '/home/remi/.pyenv/versions/3.7.5/envs/vim_python3/bin/python'
 
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
@@ -108,3 +109,6 @@ map <F9> <Plug>GitGutterPrevHunk
 nmap <leader>s <Plug>GitGutterStageHunk
 nmap <leader>u <Plug>GitGutterUndoHunk
 nmap <leader>p <Plug>GitGutterPreviewHunk
+
+
+set mouse=a

@@ -69,13 +69,13 @@ plugins=(
   python
   docker-compose
   docker
-  github
   fzf
-  jira
   mvn
   node
-  nvm
-  terraform
+  helm
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  npm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,12 +108,29 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# added by Pew
-source $(pew shell_config)
+#
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
 
 export PATH=/home/remi/.gem/ruby/2.6.0/bin:$PATH
 export PATH=$PATH:$HOME/.npm/bin
 export PATH=$PATH:$HOME/.local/bin
-
+export PATH=$HOME/.tfenv/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 alias config='/usr/bin/git --git-dir=$HOME/.dot-files-repo/ --work-tree=$HOME'
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+#pyenv init
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init - zsh)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+#Rust config
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# added by travis gem
+[ -f /home/remi/.travis/travis.sh ] && source /home/remi/.travis/travis.sh
