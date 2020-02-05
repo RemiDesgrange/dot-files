@@ -134,3 +134,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # added by travis gem
 [ -f /home/remi/.travis/travis.sh ] && source /home/remi/.travis/travis.sh
+
+# docker prune
+function docker_prune_all() {
+    docker system prune -af
+    docker volume prune -f
+    docker image prune -af
+}
