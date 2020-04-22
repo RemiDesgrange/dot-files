@@ -76,6 +76,9 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   npm
+  dotenv
+  emoji
+  systemd
 )
 
 source $ZSH/oh-my-zsh.sh
