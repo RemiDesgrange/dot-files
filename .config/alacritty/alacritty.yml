@@ -37,7 +37,8 @@ colors:
 
 font:
   normal:
-    family: "OperatorMonoLight"
+    family: "OperatorMono"
+    style: Light
   bold:
     family: "OperatorMono"
     style: Bold

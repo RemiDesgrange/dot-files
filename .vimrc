@@ -4,7 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 " install before : `python3 -m pip install pynvim`
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'zchee/deoplete-clang'
 Plug 'vim-scripts/indentpython.vim'
@@ -12,11 +12,9 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'posva/vim-vue'
 Plug 'lifepillar/vim-solarized8'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
@@ -43,7 +41,7 @@ set ai "Auto indent
 set si "Smart indent
 
 set laststatus=2
-set nu
+set number relativenumber
 
 " list of invisble chars to display
 set listchars=nbsp:¬,trail:•,tab:>-
@@ -81,7 +79,7 @@ set background=light
 colorscheme solarized8
 
 " start deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 let g:solarized_termcolors=256
 
@@ -92,15 +90,11 @@ let g:airline_powerline_fonts = 1
 " python venv so I don't need to polute my system python
 " need to create a venv for that. I'm using pew to create the venv
 let g:python_host_prog = '/home/remi/.pyenv/versions/2.7.17/envs/vim_python2/bin/python'
-let g:python3_host_prog = '/home/remi/.pyenv/versions/3.7.5/envs/vim_python3/bin/python'
+let g:python3_host_prog = '/home/remi/.pyenv/versions/3.8.2/envs/vim_python3/bin/python'
 
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-
-
-" nerdtree.
-autocmd vimenter * NERDTree | wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+"let g:deoplete#sources#jedi#python_path = '/home/remi/.pyenv/versions/envs/vim_python3/bin/'
 
 
 " Configure gutter shortcut
@@ -109,6 +103,5 @@ map <F9> <Plug>GitGutterPrevHunk
 nmap <leader>s <Plug>GitGutterStageHunk
 nmap <leader>u <Plug>GitGutterUndoHunk
 nmap <leader>p <Plug>GitGutterPreviewHunk
-
 
 set mouse=a
