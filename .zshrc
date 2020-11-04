@@ -76,7 +76,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   npm
-  dotenv
   emoji
   systemd
 )
@@ -125,6 +124,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.dot-files-repo/ --work-tree=$HOME'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias ls=exa
 
 #pyenv init
 eval "$(pyenv init - zsh)"

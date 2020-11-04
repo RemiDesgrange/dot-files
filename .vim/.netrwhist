@@ -1,6 +1,12 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/remi/Documents/Dev/georchestra/drealcorse/ansible-dreal-corse/playbooks'
-let g:netrw_dirhist_3='/home/remi/Documents/Dev/georchestra/drealcorse/ansible-dreal-corse'
-let g:netrw_dirhist_2='/home/remi'
-let g:netrw_dirhist_1='/home/remi/Documents/Perso/sqlalchemy-partition'
+let g:netrw_dirhist_4='/home/remi/Documents/Dev/allianz/allianz_zap'
+let g:netrw_dirhist_3='/home/remi/Documents/Dev/georchestra/docker/resources/ssl'
+let g:netrw_dirhist_2='/home/remi/Documents/Dev/georchestra/docker/resources/ssl/apm-server.docker.yml'
+let g:netrw_dirhist_1='/home/remi/Documents/Dev/geomapfish/luxembourg_dev_db'
+let g:netrw_dirhist_0='/home/remi/Documents/Dev/geomapfish/luxembourg_dev_db/scripts'
+let g:netrw_dirhist_9='/home/remi/Documents/Dev/geomapfish/luxembourg_dev_db'
+let g:netrw_dirhist_8='/home/remi/Documents/Dev/mviewer/mviewerstudio/srv/python/mviewerstudio_backend'
+let g:netrw_dirhist_7='/home/remi/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src'
+let g:netrw_dirhist_6='/home/remi/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
+let g:netrw_dirhist_5='/home/remi/.oh-my-zsh/plugins'

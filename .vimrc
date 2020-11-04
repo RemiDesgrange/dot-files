@@ -9,12 +9,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-clang'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'glench/vim-jinja2-syntax'
-Plug 'scrooloose/syntastic'
 Plug 'posva/vim-vue'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+Plug 'LnL7/vim-nix'
+Plug 'cespare/vim-toml'
 call plug#end()
 
 
@@ -79,7 +80,7 @@ set background=light
 colorscheme solarized8
 
 " start deoplete
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 let g:solarized_termcolors=256
 
@@ -94,7 +95,7 @@ let g:python3_host_prog = '/home/remi/.pyenv/versions/3.8.2/envs/vim_python3/bin
 
 "let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 "let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-"let g:deoplete#sources#jedi#python_path = '/home/remi/.pyenv/versions/envs/vim_python3/bin/'
+let g:deoplete#sources#jedi#python_path = '/home/remi/.pyenv/versions/envs/vim_python3/bin/'
 
 
 " Configure gutter shortcut
