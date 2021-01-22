@@ -71,11 +71,8 @@ plugins=(
   docker
   fzf
   mvn
-  node
-  helm
   zsh-syntax-highlighting
   zsh-autosuggestions
-  npm
   emoji
   systemd
 )
@@ -84,38 +81,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
- #Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
-export PATH=/home/remi/.gem/ruby/2.6.0/bin:$PATH
 export PATH=$PATH:$HOME/.npm/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$HOME/.tfenv/bin:$PATH
@@ -135,12 +105,18 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #Rust config
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# added by travis gem
-[ -f /home/remi/.travis/travis.sh ] && source /home/remi/.travis/travis.sh
 
 # docker prune
 function docker_prune_all() {
     docker system prune -af
     docker volume prune -f
     docker image prune -af
+}
+
+
+#clean pacman cache and repo
+function pacman_cache_clean() {
+    pacman -Rns $(pacman -Qtdq)
+    paccache -ruk0
+    paccache -rk1
 }

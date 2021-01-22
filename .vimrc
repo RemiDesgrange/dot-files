@@ -33,6 +33,7 @@ set expandtab
 set softtabstop=4
 set expandtab
 set fileformat=unix
+set autoread
 
 " Linebreak on 500 characters
 set lbr

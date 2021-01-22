@@ -37,17 +37,17 @@ colors:
 
 font:
   normal:
-    family: "OperatorMono"
-    style: Light
+    family: Operator Mono Book
+    style: Regular
   bold:
-    family: "OperatorMono"
+    family: Operator Mono Bold
     style: Bold
   italic:
-    family: "OperatorMono"
+    family: Operator Mono Book
     style: Italic
   bold_italic:
-    family: "OperatorMono"
-    style: Bold Italic
+    family: Operator Mono Bold
+    style: Italic
   size: 12
 shell:
   program: tmux
