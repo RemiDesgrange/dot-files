@@ -1,5 +1,11 @@
 env:
-  TERM: xterm-256color
+  TERM: alacritty
+
+window:
+  dynamic_title: true
+
+scrolling:
+  history: 0
 
 # Colors (Solarized Light)
 colors:
@@ -37,16 +43,20 @@ colors:
 
 font:
   normal:
-    family: Operator Mono Book
+    #family: Operator Mono Book
+    family: Jetbrains Mono
     style: Regular
   bold:
-    family: Operator Mono Bold
+    #family: Operator Mono Bold
+    family: Jetbrains Mono
     style: Bold
   italic:
-    family: Operator Mono Book
+    #family: Operator Mono Book
+    family: Jetbrains Mono
     style: Italic
   bold_italic:
-    family: Operator Mono Bold
+    #family: Operator Mono Bold
+    family: Jetbrains Mono
     style: Italic
   size: 12
 shell:
@@ -55,19 +65,27 @@ shell:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 key_bindings:
   - { key: V,               mods: Control|Shift,            action: Paste             }
   - { key: C,               mods: Control|Shift,            action: Copy              }
   - { key: Key0,            mods: Control,                  action: ResetFontSize     }
   - { key: Equals,          mods: Control,                  action: ResetFontSize     }
-  - { key: Plus,            mods: Control,                  action: IncreaseFontSize  }
+  - { key: Plus,            mods: Control|Shift,            action: IncreaseFontSize  }
   - { key: NumpadAdd,       mods: Control,                  action: IncreaseFontSize  }
   - { key: Minus,           mods: Control,                  action: DecreaseFontSize  }
   - { key: NumpadSubtract,  mods: Control,                  action: DecreaseFontSize  }
+# useless, tmux taking care of it.
+#mouse:
+#  url:
+#    launcher: xdg-open
+#mouse_bindings:
+#  - { mouse: Middle, action: PasteSelection }
 
-mouse:
-  url:
-    launcher: xdg-open
 
+cursor:
+  style:
+    shape: Beam
+
+live_config_reload: true

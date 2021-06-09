@@ -3,10 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
-" install before : `python3 -m pip install pynvim`
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'deoplete-plugins/deoplete-jedi'
-"Plug 'zchee/deoplete-clang'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'posva/vim-vue'
@@ -76,12 +72,11 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 " no alert
 set novisualbell
 set noerrorbells
+" no --INSERT -- since we alreayd have powerline
+set noshowmode
 
 set background=light
 colorscheme solarized8
-
-" start deoplete
-let g:deoplete#enable_at_startup = 1
 
 let g:solarized_termcolors=256
 
@@ -93,10 +88,6 @@ let g:airline_powerline_fonts = 1
 " need to create a venv for that. I'm using pew to create the venv
 let g:python_host_prog = '/home/remi/.pyenv/versions/2.7.17/envs/vim_python2/bin/python'
 let g:python3_host_prog = '/home/remi/.pyenv/versions/3.8.2/envs/vim_python3/bin/python'
-
-"let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-"let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-let g:deoplete#sources#jedi#python_path = '/home/remi/.pyenv/versions/envs/vim_python3/bin/'
 
 
 " Configure gutter shortcut

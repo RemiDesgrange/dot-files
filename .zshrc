@@ -40,7 +40,7 @@ ZSH_THEME="bira"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -81,20 +81,16 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
-fi
-
-export PATH=$PATH:$HOME/.npm/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$HOME/.tfenv/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+# my dot files under version control. Use "config add <bla>" "config commit" etc...
 alias config='/usr/bin/git --git-dir=$HOME/.dot-files-repo/ --work-tree=$HOME'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias ls=exa
+alias ipc="ip -c -br"
 
 #pyenv init
 eval "$(pyenv init - zsh)"
@@ -113,7 +109,30 @@ function docker_prune_all() {
 
 #clean pacman cache and repo
 function pacman_cache_clean() {
-    pacman -Rns $(pacman -Qtdq)
+    sudo pacman -Rns $(pacman -Qtdq)
     paccache -ruk0
     paccache -rk1
 }
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# zsh autosuggest config
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d1d1d1,underline"
+
+
+# autocomplete ssh/scp hostname in ~/.ssh/config ~/.ssh/config.d/*
+_ssh()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
+
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    return 0
+}
+complete -F _ssh ssh
+complete -F _ssh scp
