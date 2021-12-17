@@ -1,17 +1,17 @@
 set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'posva/vim-vue'
 Plug 'lifepillar/vim-solarized8'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'LnL7/vim-nix'
 Plug 'cespare/vim-toml'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 
@@ -25,18 +25,13 @@ set encoding=utf8
 syntax on
 set tabstop=4
 set shiftwidth=4
-set expandtab
 set softtabstop=4
 set expandtab
 set fileformat=unix
 set autoread
 
-" Linebreak on 500 characters
-set lbr
-set tw=100
-
-set ai "Auto indent
-set si "Smart indent
+"set ai "Auto indent
+"set si "Smart indent
 
 set laststatus=2
 set number relativenumber
@@ -67,6 +62,7 @@ au BufNewFile,BufRead *.py
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+" spelling on markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
 
 " no alert
@@ -80,14 +76,7 @@ colorscheme solarized8
 
 let g:solarized_termcolors=256
 
-
-" airline is like powerline but wiothout all the boring stuff
-let g:airline_powerline_fonts = 1
-
-" python venv so I don't need to polute my system python
-" need to create a venv for that. I'm using pew to create the venv
-let g:python_host_prog = '/home/remi/.pyenv/versions/2.7.17/envs/vim_python2/bin/python'
-let g:python3_host_prog = '/home/remi/.pyenv/versions/3.8.2/envs/vim_python3/bin/python'
+let g:lightline = {'colorscheme': 'solarized',}
 
 
 " Configure gutter shortcut
@@ -98,3 +87,10 @@ nmap <leader>u <Plug>GitGutterUndoHunk
 nmap <leader>p <Plug>GitGutterPreviewHunk
 
 set mouse=a
+
+
+" Neat X clipboard integration
+" ,p will paste clipboard into buffer
+" ,c will copy entire buffer into clipboard
+noremap <leader>p :read !xsel --clipboard --output<cr>
+noremap <leader>c :w !xsel -ib<cr><cr>

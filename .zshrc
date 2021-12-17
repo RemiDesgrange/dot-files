@@ -1,3 +1,7 @@
+
+# uncomment for profiling ZSH with the `zprof` command.
+#zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -81,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.tfenv/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 # my dot files under version control. Use "config add <bla>" "config commit" etc...
@@ -94,10 +98,8 @@ alias ipc="ip -c -br"
 
 #pyenv init
 eval "$(pyenv init - zsh)"
+eval "$(pyenv init --path zsh)"
 eval "$(pyenv virtualenv-init - zsh)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # docker prune
 function docker_prune_all() {
@@ -116,11 +118,16 @@ function pacman_cache_clean() {
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # zsh autosuggest config
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d1d1d1,underline"
 
+# zoxide is and autojumper
+eval "$(zoxide init zsh)"
+alias cd=z
+alias cdi=zi
 
 # autocomplete ssh/scp hostname in ~/.ssh/config ~/.ssh/config.d/*
 _ssh()
@@ -136,3 +143,20 @@ _ssh()
 }
 complete -F _ssh ssh
 complete -F _ssh scp
+
+export GPG_TTY=$(tty)
+
+
+# debug plugins load time plugin by plugin. Slow stuff down _A LOT_
+#gdate="python -c 'from time import time; print(int(round(time() * 1000)))'"
+#for plugin ($plugins); do
+#  timer=$(eval $gdate)
+#  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+#    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+#  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+#    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+#  fi
+#  now=$(eval $gdate)
+#  elapsed=$(($now-$timer))
+#  echo $elapsed":" $plugin
+#done
