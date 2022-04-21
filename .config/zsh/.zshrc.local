@@ -1,4 +1,14 @@
 
+eval "$(pyenv init --path)"
+eval "$(pyenv init - zsh)"
+#eval "$(pyenv virtualenv-init - zsh)"
+eval "$(pyenv virtualenv-init - | sed s/precmd/chpwd/g)"
+
+fpath=(
+    $ZDOTDIR/.zfunc
+    "${fpath[@]}"
+)
+
 export FZF_BASE=/usr/bin/fzf
 
 export PATH=$HOME/.local/bin:$PATH
@@ -8,6 +18,7 @@ export PATH=/usr/local/bin:$PATH
 # my dot files under version control. Use "config add <bla>" "config commit" etc...
 alias config='/usr/bin/git --git-dir=$HOME/.dot-files-repo/ --work-tree=$HOME'
 alias ls=exa
+alias ll="ls -alih"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

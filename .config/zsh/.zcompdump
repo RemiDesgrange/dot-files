@@ -1,4 +1,4 @@
-#files: 1090	version: 5.8.1
+#files: 1090	version: 5.8
 
 _comps=(
 '-' '_precommand'
@@ -920,7 +920,6 @@ _comps=(
 'locale' '_locale'
 'localedef' '_localedef'
 'locate' '_locate'
-'log' '_nothing'
 'logname' '_nothing'
 'look' '_look'
 'losetup' '_losetup'
@@ -1802,7 +1801,6 @@ _comps=(
 'ytalk' '_other_accounts'
 'yum' '_yum'
 'yumdb' '_yum'
-'z' '_z'
 'zargs' '_zargs'
 'zcalc' '_zcalc'
 'zcash-cli' '_zcash-cli'

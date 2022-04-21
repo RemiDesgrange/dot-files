@@ -1,2 +1,3 @@
 https://github.com/Raniconduh/zshfish
 zpm-zsh/ssh
+https://github.com/romkatv/zsh-prompt-benchmark
