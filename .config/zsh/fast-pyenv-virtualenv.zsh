@@ -1,4 +1,4 @@
-
+#From https://gist.github.com/nolar/ba60ad1c0df936d7b1cd1f708039f337
 # FIXME: pyenv-virtualenv is increadibly slow with ~10 virtualenvs.
 # FIXME: because of the injection to $PROMPT_COMMAND: _pyenv_virtualenv_hook.
 # FIXME: because it calls `pyenv sh-activate` on every prompt, which is slow.

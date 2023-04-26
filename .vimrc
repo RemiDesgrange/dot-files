@@ -2,16 +2,19 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'glench/vim-jinja2-syntax'
-Plug 'posva/vim-vue'
+"Plug 'glench/vim-jinja2-syntax'
+"Plug 'posva/vim-vue'
 Plug 'lifepillar/vim-solarized8'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'LnL7/vim-nix'
-Plug 'cespare/vim-toml'
-Plug 'hashivim/vim-terraform'
+"Plug 'LnL7/vim-nix'
+"Plug 'cespare/vim-toml'
+"Plug 'hashivim/vim-terraform'
+" Intellisense engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 
@@ -94,3 +97,11 @@ set mouse=a
 " ,c will copy entire buffer into clipboard
 noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
+
+
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None

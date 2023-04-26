@@ -6,6 +6,7 @@ alias zprofrc="ZPROFRC=1 zsh"
 source $ZDOTDIR/antidote.zsh
 
 source $ZDOTDIR/completion.zsh
+source $ZDOTDIR/git-aliases.zsh
 
 # share history between seesion/term
 setopt share_history
@@ -33,7 +34,7 @@ function docker_prune_all() {
 # zsh autosuggest config
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d1d1d1,underline"
 
-# zoxide is and autojumper
+# zoxide is an autojumper
 eval "$(zoxide init zsh)"
 alias cd=z
 alias cdi=zi
@@ -45,6 +46,18 @@ export HOMEBREW_NO_ENV_HINTS=yes
 # launch fucking tmux since alacritty is not capable of doing so.
 alias alatmux="tmux new -A -s alacritty"
 
+# list process who listen on specific port (tcp only)
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
+export PIP_REQUIRE_VIRTUALENV=true
 
 # done profiling
 [[ ${ZPROFRC:-0} -eq 0 ]] || { unset ZPROFRC && zprof }

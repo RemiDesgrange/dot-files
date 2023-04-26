@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Users/remi'
+let g:netrw_dirhist_1='/Users/remi/work/si/extranet/commercial'
+let g:netrw_dirhist_0='/Users/remi/work/si/extranet/static/private/components'
+let g:netrw_dirhist_9='/Users/remi/work/si/extranet/static/private'
+let g:netrw_dirhist_8='/Users/remi/work/si/ipe-importer'
+let g:netrw_dirhist_7='/Users/remi/Documents/perso/University/GitAndDeployments/terraform-recipes/student-machine'
+let g:netrw_dirhist_6='/Users/remi/Documents/perso/University/GitAndDeployments/terraform-recipes/ansible-practice-machine'
+let g:netrw_dirhist_5='/Users/remi/work/si/ipe-importer'
+let g:netrw_dirhist_4='/Users/remi/work/si/extranet-test/test_gcgis'
+let g:netrw_dirhist_3='/Users/remi/work/si/ipe-rest-api/ipe_inotify'
+let g:netrw_dirhist_2='/Users/remi/work/si/ipe-rest-api'
